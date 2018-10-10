@@ -126,9 +126,10 @@ def sgraph(start_time, end_time, naming_convention, model_path=conf.model_path, 
     start_frame = int(real_start_t * (1 / secs_per_frame))
     end_frame = int(real_end_t * (1 / secs_per_frame))
 
+    ## pickling is occuring in this step!
     plt.subplot(1, 1, 1)
     stft = pkl.load(open(stft_path+target_file+'.pkl', "rb"))
-    stft_sub = stft[start_frame:end_frame]
+    stft_sub = stft[start_frame:1000]
     stft_sub = np.matrix.transpose(stft_sub.values)
 
     spectrogram(stft_sub, window_size, overlap, fs,
