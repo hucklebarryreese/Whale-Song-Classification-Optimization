@@ -9,7 +9,6 @@ from pylab import savefig
 # desc = whale song label descriptions
 # nentries = number of labels in a .txt file
 
-
 ## Loads up the files to parse
 def loader():
     #### TODO: add the automated file loading process here
@@ -42,6 +41,7 @@ def splicer(df):
     name = [0,1,2]
 
     nentries = df.shape[0]-1    
+    #### THIS IS THE LOOP THAT I CHANGED TO MAKE IT RUN ONCE
     for i in range(1):
         startt = df.iloc[i]['Begin Time (s)']
         endt = df.iloc[i]['End Time (s)']
@@ -52,7 +52,6 @@ def splicer(df):
         name[2] = desc
         nconvention(name)
 
-        #### TODO: make sure the file name is reflected in the naming convention
         #finaln = "20151023T122324_" + str(i+1) + "_" + name[2] + "_" + name[0] + "_" + name[1]
         finaln = name[2] + "_" + name[0] + "_" + name[1]
         tst.sgraph(startt,endt,finaln)
